@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void goToScanActivity(View view) {
-        Intent intent = new Intent(this, MenuActivity.class);
+        Intent intent = new Intent(this, ScanActivity.class);
         startActivity(intent);
     }
 }
