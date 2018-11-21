@@ -3,6 +3,7 @@ package com.example.rochet.eatsmart;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Vibrator;
 import android.support.annotation.NonNull;
@@ -104,6 +105,10 @@ public class ScanActivity extends AppCompatActivity {
                             Vibrator vibrator = (Vibrator)getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                             vibrator.vibrate(1000);
                             txtResult.setText(qrcodes.valueAt(0).displayValue);
+
+                            Intent intent = new Intent(ScanActivity.this, MenuActivity.class);
+                            intent.putExtra("codeMenu", "AZERTY");
+                            startActivity(intent);
                         }
                     });
                 }
