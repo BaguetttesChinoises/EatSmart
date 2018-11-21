@@ -107,7 +107,7 @@ public class ScanActivity extends AppCompatActivity {
                             txtResult.setText(qrcodes.valueAt(0).displayValue);
 
                             Intent intent = new Intent(ScanActivity.this, MenuActivity.class);
-                            intent.putExtra("codeMenu", "AZERTY");
+                            intent.putExtra("codeMenu", qrcodes.valueAt(0).displayValue);
                             startActivity(intent);
                         }
                     });
