@@ -44,12 +44,12 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        //Toast
+        //Initialisation
         Toast toast = Toast.makeText(getApplicationContext(), "Chargement", Toast.LENGTH_LONG);
         txtTest = (TextView) findViewById(R.id.textTest);
+        listMenu = (ListView) findViewById(R.id.listMenu);
 
-
-        //Check de la connexion
+        //Check de la connexion Internet
         if (!isConnected()) {
             toast = Toast.makeText(getApplicationContext(), "Pas de connexion !", Toast.LENGTH_SHORT);
             toast.show();
@@ -61,11 +61,9 @@ public class MenuActivity extends AppCompatActivity {
         String strCode = intent.getStringExtra("codeMenu");
         new FetchTask().execute("https://eatsmartapi.herokuapp.com/dishes?code=" + strCode);
 
-        //On lance la liste des menus
-        listMenu = (ListView) findViewById(R.id.listMenu);
-
     }
 
+    //Liste de menu custom
     class MenuAdapter extends BaseAdapter {
 
         @Override
@@ -105,6 +103,8 @@ public class MenuActivity extends AppCompatActivity {
         return networkInfo != null && networkInfo.isConnected();
     }
 
+
+    //Récupère l'API
     private class FetchTask extends AsyncTask<String, Void, String> {
 
         @Override
@@ -136,8 +136,8 @@ public class MenuActivity extends AppCompatActivity {
             } else {
 
                 try {
+                    //Parsing JSON
                     JSONObject response = new JSONObject(s);
-
                     List<String> list = new ArrayList<String>();
 
                     //Menu Name
@@ -147,7 +147,7 @@ public class MenuActivity extends AppCompatActivity {
                     }
                     list_menu_NAME = list.toArray(new String[list.size()]);
 
-                    //created_at
+                    //Menu created_at
                     array = response.getJSONArray("menue");
                     list.clear();
                     for(int i = 0 ; i < array.length() ; i++){
