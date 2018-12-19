@@ -23,4 +23,19 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ScanActivity.class);
         startActivity(intent);
     }
+
+    public void goToPayActivity(View view) {
+        Intent intent = new Intent(this, PayActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToMenuDesignActivity(View view) {
+        Intent intent = new Intent(this, MenuDesignActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToMealActivity(View view) {
+        Intent intent = new Intent(this, MealActivity.class);
+        startActivity(intent);
+    }
 }
