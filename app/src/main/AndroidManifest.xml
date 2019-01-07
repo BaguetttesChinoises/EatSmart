@@ -40,6 +40,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.rochet.eatsmart.MenuDesignActivity" />
         </activity>
+        <activity android:name=".FoodDetailActivity"></activity>
     </application>
 
 </manifest>

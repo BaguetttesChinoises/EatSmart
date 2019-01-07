@@ -1,7 +1,10 @@
 package com.example.rochet.eatsmart;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,11 +22,17 @@ import java.util.LinkedList;
 public class MealListAdapter extends
         RecyclerView.Adapter<MealListAdapter.MealViewHolder> {
 
+
+
     private final LinkedList<Meal> mMealList;
     private final LayoutInflater mInflater;
+    private final Context mContext;
+
 
     class MealViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
+        public static final String EXTRA_MEAL = "com.example.rochet.extra.MEAL";
+        private final String LOG_TAG = MealListAdapter.class.getSimpleName();
         public final TextView textMenuView;
         public final ImageView imageMenuView;
         final MealListAdapter mAdapter;
@@ -46,7 +55,22 @@ public class MealListAdapter extends
 
         @Override
         public void onClick(View view) {
+
             //Handles the click on one item of the recycler view
+            Log.d(LOG_TAG, "meal clicked");
+
+            int mealPosition = getLayoutPosition();
+            Meal meal = mMealList.get(mealPosition);
+            Log.d(LOG_TAG, "meal  selectionne dans ladapter: " + meal.getName());
+
+
+            Intent intent = new Intent(mContext, FoodDetailActivity.class);
+            //create a Bundle object for saving the meal
+            Bundle bundle = new Bundle();
+            //Adding key value pairs to this bundle
+            bundle.putSerializable("meal_selected", meal);
+            intent.putExtra(EXTRA_MEAL, bundle);
+            mContext.startActivity(intent);
             mAdapter.notifyDataSetChanged();
         }
     }
@@ -54,6 +78,8 @@ public class MealListAdapter extends
     public MealListAdapter(Context context, LinkedList<Meal> mealList) {
         mInflater = LayoutInflater.from(context);
         this.mMealList = mealList;
+        mContext = context;
+
     }
 
     /**

@@ -1,6 +1,8 @@
 package com.example.rochet.eatsmart.Model;
 
-public class Meal {
+import java.io.Serializable;
+
+public class Meal implements Serializable {
     private String name;
     private String image;
 
