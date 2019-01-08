@@ -106,7 +106,7 @@ public class ScanActivity extends AppCompatActivity {
                             vibrator.vibrate(500);
                             txtResult.setText(qrcodes.valueAt(0).displayValue);
 
-                            Intent intent = new Intent(ScanActivity.this, MenuActivity.class);
+                            Intent intent = new Intent(ScanActivity.this, MenuDesignActivity.class);
                             intent.putExtra("codeMenu", qrcodes.valueAt(0).displayValue);
                             startActivity(intent);
                         }

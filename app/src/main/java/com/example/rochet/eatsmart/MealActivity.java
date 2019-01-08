@@ -68,13 +68,13 @@ public class MealActivity extends AppCompatActivity {
             return;
         }
 
-        loadMenu();
+        loadMenu(myCategory.getName());
 
 
 
     }
 
-    private void loadMenu() {
+    private void loadMenu(String categorie) {
         // Put initial data into the category list.
         /*for (int i = 0; i < 10; i++) {
             mMealList.add(new Meal("meal" + i, ""));
@@ -83,7 +83,7 @@ public class MealActivity extends AppCompatActivity {
         //Requête API
         //Intent intent = getIntent();
         //String strCode = intent.getStringExtra("codeMenu");
-        new MealActivity.FetchTask().execute("https://eatsmartapi.herokuapp.com/dishes?code=AZERTY");
+        new MealActivity.FetchTask().execute("https://eatsmartapi.herokuapp.com/categories/" + categorie + "/dishes");
     }
 
     private boolean isConnected() {
@@ -132,7 +132,7 @@ public class MealActivity extends AppCompatActivity {
                     //List<String> list = new ArrayList<String>();
 
                     //Menu Name
-                    JSONArray array = response.getJSONArray("menue");
+                    JSONArray array = response.getJSONArray("dishes");
                     for(int i = 0 ; i < array.length() ; i++) {
                         //list.add(array.getJSONObject(i).getString("name"));
                         mMealList.add(new Meal(array.getJSONObject(i).getString("name"), ""));

@@ -108,9 +108,9 @@ public class MenuDesignActivity extends AppCompatActivity
         }*/
 
         //Requête API
-        //Intent intent = getIntent();
-        //String strCode = intent.getStringExtra("codeMenu");
-        new MenuDesignActivity.FetchTask().execute("https://eatsmartapi.herokuapp.com/categories/legumes/dishes");
+        Intent intent = getIntent();
+        String strCode = intent.getStringExtra("codeMenu");
+        new MenuDesignActivity.FetchTask().execute("https://eatsmartapi.herokuapp.com/categories?code=" + strCode);
     }
 
 
@@ -207,7 +207,7 @@ public class MenuDesignActivity extends AppCompatActivity
                     //List<String> list = new ArrayList<String>();
 
                     //Menu Name
-                    JSONArray array = response.getJSONArray("dishes");
+                    JSONArray array = response.getJSONArray("categories");
                     for(int i = 0 ; i < array.length() ; i++) {
                         //list.add(array.getJSONObject(i).getString("name"));
                         mCategoryList.add(new Category(array.getJSONObject(i).getString("name"), ""));
