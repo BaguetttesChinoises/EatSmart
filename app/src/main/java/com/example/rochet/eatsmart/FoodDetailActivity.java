@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -54,6 +55,11 @@ public class FoodDetailActivity extends AppCompatActivity {
                         currentMeal.getPrice()
                 ));
                 Toast.makeText(FoodDetailActivity.this, "Added to cart", Toast.LENGTH_SHORT).show();
+
+                Snackbar mySnackbar =  Snackbar.make(v, "Have you finish ?", Snackbar.LENGTH_LONG);
+                mySnackbar.setAction("Cart List", new SnackBarListener()); //new MyUndoListener()
+                mySnackbar.show();
+
             }
         });
 
@@ -87,5 +93,17 @@ public class FoodDetailActivity extends AppCompatActivity {
         food_name.setText(myMeal.getName());
         //food_description.setText(myMeal.getDescription());
 
+    }
+
+    public class SnackBarListener implements View.OnClickListener{
+
+        @Override
+        public void onClick(View v) {
+
+            // Code to execute when the action snakbar button is pressed
+            Intent cartIntent = new Intent(FoodDetailActivity.this, CartActivity.class);
+            startActivity(cartIntent);
+
+        }
     }
 }
