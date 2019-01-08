@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -40,7 +42,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.rochet.eatsmart.MenuDesignActivity" />
         </activity>
-        <activity android:name=".FoodDetailActivity"></activity>
+        <activity android:name=".FoodDetailActivity" />
+        <activity android:name=".CartActivity"></activity>
     </application>
 
 </manifest>

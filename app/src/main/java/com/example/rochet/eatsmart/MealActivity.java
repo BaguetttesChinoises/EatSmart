@@ -35,8 +35,8 @@ public class MealActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent cartIntent = new Intent(MealActivity.this, CartActivity.class);
+                startActivity(cartIntent);
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

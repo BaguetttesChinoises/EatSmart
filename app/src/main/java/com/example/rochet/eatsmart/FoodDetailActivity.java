@@ -1,18 +1,28 @@
 package com.example.rochet.eatsmart;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
+import com.example.rochet.eatsmart.Database.Database;
 import com.example.rochet.eatsmart.Model.Meal;
+import com.example.rochet.eatsmart.Model.Order;
 
 public class FoodDetailActivity extends AppCompatActivity {
+
 
     private final String LOG_TAG = FoodDetailActivity.class.getSimpleName();
 
@@ -22,7 +32,7 @@ public class FoodDetailActivity extends AppCompatActivity {
     FloatingActionButton btnCart;
     ElegantNumberButton numberButton;
 
-    String foodId;
+    Meal currentMeal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +42,21 @@ public class FoodDetailActivity extends AppCompatActivity {
         //Init view
         numberButton = findViewById(R.id.number_button);
         btnCart = findViewById(R.id.btnCart);
+
+        btnCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                new Database(getBaseContext()).addToCart(new Order(
+                         currentMeal.getId(),
+                        currentMeal.getName(),
+                        numberButton.getNumber(),
+                        currentMeal.getPrice()
+                ));
+                Toast.makeText(FoodDetailActivity.this, "Added to cart", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         food_description = findViewById(R.id.food_description);
         food_name = findViewById(R.id.food_name);
@@ -48,9 +73,9 @@ public class FoodDetailActivity extends AppCompatActivity {
         if (intent != null) {
             Bundle bundle = intent.getBundleExtra(MealListAdapter.MealViewHolder.EXTRA_MEAL);
             //Type object = (Type) bundle.getSerializable("KEY");
-            Meal myMeal = (Meal) bundle.getSerializable("meal_selected");
-            Log.d(LOG_TAG, "meal qui a lance cette activity : " + myMeal.getName());
-            loadFoodDetail(myMeal);
+            currentMeal = (Meal) bundle.getSerializable("meal_selected");
+            Log.d(LOG_TAG, "meal qui a lance cette activity : " + currentMeal.getName());
+            loadFoodDetail(currentMeal);
         }
     }
 

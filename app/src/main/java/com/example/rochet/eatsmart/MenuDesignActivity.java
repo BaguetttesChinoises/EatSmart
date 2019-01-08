@@ -1,5 +1,6 @@
 package com.example.rochet.eatsmart;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.rochet.eatsmart.Model.Category;
+import com.google.android.gms.wallet.Cart;
 
 import java.util.LinkedList;
 
@@ -37,8 +39,8 @@ public class MenuDesignActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent cartIntent = new Intent(MenuDesignActivity.this, CartActivity.class);
+                startActivity(cartIntent);
             }
         });
 
@@ -116,8 +118,12 @@ public class MenuDesignActivity extends AppCompatActivity
 
         if (id == R.id.nav_menu) {
             // Handle the menu action
+            Intent cartIntent = new Intent(MenuDesignActivity.this, MenuDesignActivity.class);
+            startActivity(cartIntent);
         } else if (id == R.id.nav_order) {
             // Handle the order action
+            Intent cartIntent = new Intent(MenuDesignActivity.this, CartActivity.class);
+            startActivity(cartIntent);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
