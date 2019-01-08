@@ -103,7 +103,7 @@ public class ScanActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             Vibrator vibrator = (Vibrator)getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
-                            vibrator.vibrate(1000);
+                            vibrator.vibrate(500);
                             txtResult.setText(qrcodes.valueAt(0).displayValue);
 
                             Intent intent = new Intent(ScanActivity.this, MenuActivity.class);
