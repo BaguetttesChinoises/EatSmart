@@ -207,10 +207,10 @@ public class MenuDesignActivity extends AppCompatActivity
                     //List<String> list = new ArrayList<String>();
 
                     //Menu Name
-                    JSONArray array = response.getJSONArray("categories");
+                    JSONArray array = response.getJSONArray("dishes");
                     for(int i = 0 ; i < array.length() ; i++) {
                         //list.add(array.getJSONObject(i).getString("name"));
-                        mCategoryList.add(new Category(array.getJSONObject(i).getString("name"), ""));
+                        mCategoryList.add(new Category(array.getJSONObject(i).getJSONObject("category").getString("name"), ""));
                     }
 
                     // Create recycler view.
