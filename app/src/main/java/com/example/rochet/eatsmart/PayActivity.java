@@ -33,7 +33,7 @@ public class PayActivity extends AppCompatActivity {
                         "13.3 inch, Silver, 1.35 kg",
                         4.3,
                         60000,
-                        R.drawable.plat));
+                        R.drawable.category_1));
 
         productList.add(
                 new Product(
@@ -42,7 +42,7 @@ public class PayActivity extends AppCompatActivity {
                         "14 inch, Gray, 1.659 kg",
                         4.3,
                         60000,
-                        R.drawable.plat));
+                        R.drawable.category_1));
 
         productList.add(
                 new Product(
@@ -51,7 +51,7 @@ public class PayActivity extends AppCompatActivity {
                         "13.3 inch, Silver, 1.35 kg",
                         4.3,
                         60000,
-                        R.drawable.plat));
+                        R.drawable.category_1));
 
         productList.add(
                 new Product(
@@ -60,7 +60,7 @@ public class PayActivity extends AppCompatActivity {
                         "13.3 inch, Silver, 1.35 kg",
                         4.3,
                         60000,
-                        R.drawable.plat));
+                        R.drawable.category_1));
 
         productList.add(
                 new Product(
@@ -69,7 +69,7 @@ public class PayActivity extends AppCompatActivity {
                         "13.3 inch, Silver, 1.35 kg",
                         4.3,
                         60000,
-                        R.drawable.plat));
+                        R.drawable.category_1));
 
         adapter = new ProductAdapter(this, productList);
         recyclerView.setAdapter(adapter);
