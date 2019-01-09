@@ -176,8 +176,7 @@ public class MenuDesignActivity extends AppCompatActivity
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            toast = Toast.makeText(getApplicationContext(), "Chargement", Toast.LENGTH_SHORT);
-            toast.show();
+            
         }
 
         @Override
@@ -230,8 +229,7 @@ public class MenuDesignActivity extends AppCompatActivity
                     e.printStackTrace();
                 }
             }
-            toast = Toast.makeText(getApplicationContext(), "finish", Toast.LENGTH_SHORT);
-            toast.show();
+
         }
     }
 }
