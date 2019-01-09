@@ -122,13 +122,22 @@ public class CategoryListAdapter extends
     public void onBindViewHolder(MenuViewHolder holder,
                                  int position) {
         // Retrieve the data for that position.
+        Integer id = mCategoryList.get(position).getId();
         String name = mCategoryList.get(position).getName();
         String image = mCategoryList.get(position).getImage();
+
         // Add the data to the view holder.
         holder.textMenuView.setText(name);
         // Todo : set the image menu
         // holder.imageMenuView.set
         // holder.imageMenuView.setImageDrawable(mCtx.getResources().getDrawable(product.getImage() attention cest un int));
+        // Return the id of the drawable you want to access.
+        int imgDrawableId = mContext.getResources().getIdentifier(
+                "com.example.rochet.eatsmart:drawable/" + "category_" + id, null, null);
+        // Sets the image in the imageview
+        holder.imageMenuView.setImageResource(imgDrawableId);
+
+
 
     }
 

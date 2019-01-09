@@ -210,7 +210,10 @@ public class MenuDesignActivity extends AppCompatActivity
                     JSONArray array = response.getJSONArray("dishes");
                     for(int i = 0 ; i < array.length() ; i++) {
                         //list.add(array.getJSONObject(i).getString("name"));
-                        mCategoryList.add(new Category(array.getJSONObject(i).getJSONObject("category").getString("name"), ""));
+                        mCategoryList.add(new Category(
+                                Integer.parseInt(array.getJSONObject(i).getJSONObject("category").getString("id")),
+                                array.getJSONObject(i).getJSONObject("category").getString("name"),
+                                ""));
                     }
 
                     // Create recycler view.
