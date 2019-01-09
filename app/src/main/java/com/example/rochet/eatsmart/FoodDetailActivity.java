@@ -88,10 +88,10 @@ public class FoodDetailActivity extends AppCompatActivity {
     private void loadFoodDetail(Meal myMeal) {
         // Put initial data into the food detail.
         collapsingToolbarLayout.setTitle(myMeal.getName());
-        // todo implementer les get et seter du lmeal
-        //food_price.setText(myMeal.getPrice());
+        // todo implementer les image
         food_name.setText(myMeal.getName());
-        //food_description.setText(myMeal.getDescription());
+        food_price.setText(myMeal.getPrice());
+        food_description.setText(myMeal.getDescription());
 
     }
 
