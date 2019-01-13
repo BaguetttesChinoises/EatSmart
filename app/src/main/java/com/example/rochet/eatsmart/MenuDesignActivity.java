@@ -212,7 +212,7 @@ public class MenuDesignActivity extends AppCompatActivity
                         mCategoryList.add(new Category(
                                 Integer.parseInt(array.getJSONObject(i).getJSONObject("category").getString("id")),
                                 array.getJSONObject(i).getJSONObject("category").getString("name"),
-                                ""));
+                                array.getJSONObject(i).getJSONObject("category").getString("image")));
                     }
 
                     // Create recycler view.
