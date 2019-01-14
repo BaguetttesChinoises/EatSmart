@@ -7,7 +7,6 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -83,7 +82,7 @@ public class MealActivity extends AppCompatActivity {
         //Requête API
         //Intent intent = getIntent();
         //String strCode = intent.getStringExtra("codeMenu");
-        new MealActivity.FetchTask().execute("https://eatsmartapi.herokuapp.com/categories/" + categorie + "/dishes");
+        new MealActivity.FetchTask().execute("https://eatsmartapi.herokuapp.com/categories/" + categorie + "/dishes?code=AZERTY");
     }
 
     private boolean isConnected() {
@@ -132,10 +131,27 @@ public class MealActivity extends AppCompatActivity {
                     //List<String> list = new ArrayList<String>();
 
                     //Menu Name
+/*
                     JSONArray array = response.getJSONArray("dishes");
+*/
+                    JSONObject menue = response.getJSONObject("menue");
+                    JSONArray array = menue.getJSONArray("dishes");
+
+
                     for(int i = 0 ; i < array.length() ; i++) {
                         //list.add(array.getJSONObject(i).getString("name"));
-                        mMealList.add(new Meal(array.getJSONObject(i).getString("name"), ""));
+                        /*mMealList.add(new Meal(
+                                array.getJSONObject(i).getString("id"),
+                                array.getJSONObject(i).getString("name"),
+                                array.getJSONObject(i).getString("image"),
+                                array.getJSONObject(i).getString("description"),
+                                Integer.parseInt(array.getJSONObject(i).getString("price")),
+                                Integer.parseInt(array.getJSONObject(i).getString("category_id"))
+                        ));*/
+                        mMealList.add(new Meal(
+                                array.getJSONObject(i).getString("name"),
+                                array.getJSONObject(i).getString("image")
+                        ));
                     }
 
                     // Create recycler view.
