@@ -37,7 +37,7 @@ public class Database extends SQLiteAssetHelper {
                         new Order(c.getString(c.getColumnIndex("ProductId")),
                                 c.getString(c.getColumnIndex("ProductName")),
                                 c.getString(c.getColumnIndex("Quantity")),
-                                c.getString(c.getColumnIndex("Price"))
+                                Integer.parseInt(c.getString(c.getColumnIndex("Price")))
                         ));
 
             } while (c.moveToNext());

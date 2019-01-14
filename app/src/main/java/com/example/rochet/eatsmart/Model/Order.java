@@ -4,12 +4,12 @@ public class Order {
     private String ProductId;
     private String ProductName;
     private String Quantity;
-    private String Price;
+    private Integer Price;
 
     public Order() {
     }
 
-    public Order(String productId, String productName, String quantity, String price) {
+    public Order(String productId, String productName, String quantity, Integer price) {
         this.ProductId = productId;
         this.ProductName = productName;
         this.Quantity = quantity;
@@ -40,11 +40,11 @@ public class Order {
         this.Quantity = quantity;
     }
 
-    public String getPrice() {
+    public Integer getPrice() {
         return Price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Integer price) {
         this.Price = price;
     }
 }

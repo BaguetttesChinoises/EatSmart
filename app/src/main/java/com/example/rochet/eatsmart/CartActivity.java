@@ -58,7 +58,7 @@ public class CartActivity extends AppCompatActivity {
         //Caculate total price
         int total = 0;
         for (Order order : cart) {
-            total += (Integer.parseInt(order.getPrice())) * (Integer.parseInt(order.getQuantity()));
+            total += (order.getPrice()) * (Integer.parseInt(order.getQuantity()));
         }
         Locale locale = new Locale("fr", "FR"); // ATTENTION
         NumberFormat fmt = NumberFormat.getCurrencyInstance(locale);

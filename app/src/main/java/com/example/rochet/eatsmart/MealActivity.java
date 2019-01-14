@@ -140,17 +140,13 @@ public class MealActivity extends AppCompatActivity {
 
                     for(int i = 0 ; i < array.length() ; i++) {
                         //list.add(array.getJSONObject(i).getString("name"));
-                        /*mMealList.add(new Meal(
+                        mMealList.add(new Meal(
                                 array.getJSONObject(i).getString("id"),
                                 array.getJSONObject(i).getString("name"),
                                 array.getJSONObject(i).getString("image"),
                                 array.getJSONObject(i).getString("description"),
                                 Integer.parseInt(array.getJSONObject(i).getString("price")),
                                 Integer.parseInt(array.getJSONObject(i).getString("category_id"))
-                        ));*/
-                        mMealList.add(new Meal(
-                                array.getJSONObject(i).getString("name"),
-                                array.getJSONObject(i).getString("image")
                         ));
                     }
 

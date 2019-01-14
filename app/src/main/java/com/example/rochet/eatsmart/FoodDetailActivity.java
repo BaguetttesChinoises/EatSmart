@@ -90,9 +90,13 @@ public class FoodDetailActivity extends AppCompatActivity {
         collapsingToolbarLayout.setTitle(myMeal.getName());
         // todo implementer les image
         food_name.setText(myMeal.getName());
-        food_price.setText(myMeal.getPrice());
+        food_price.setText(myMeal.getPrice().toString());
         food_description.setText(myMeal.getDescription());
-
+        // Return the id of the drawable you want to access.
+        int imgDrawableId = getResources().getIdentifier(
+                "com.example.rochet.eatsmart:drawable/" + myMeal.getImage(), null, null);
+        // Sets the image in the imageview
+        food_image.setImageResource(imgDrawableId);
     }
 
     public class SnackBarListener implements View.OnClickListener{

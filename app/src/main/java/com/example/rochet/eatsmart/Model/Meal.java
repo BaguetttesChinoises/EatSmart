@@ -6,9 +6,9 @@ public class Meal implements Serializable {
     private String id;
     private String name;
     private String image;
-    private String description="description du meal";
-    private String price = "1234";
-    private String categoryId = "1111";
+    private String description;
+    private Integer price;
+    private Integer categoryId;
 
     public Meal() {
     }
@@ -18,7 +18,7 @@ public class Meal implements Serializable {
         this.image = image;
     }
 
-    public Meal(String id, String name, String image, String description, String price, String categoryId) {
+    public Meal(String id, String name, String image, String description, Integer price, Integer categoryId) {
         this.id = id;
         this.name = name;
         this.image = image;
@@ -51,19 +51,19 @@ public class Meal implements Serializable {
         this.description = description;
     }
 
-    public String getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
-    public String getCategoryId() {
+    public Integer getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(String categoryId) {
+    public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
     }
 
