@@ -37,12 +37,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MealActivity"
-            android:label="@string/title_activity_meal"
-            android:parentActivityName=".MenuDesignActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.rochet.eatsmart.MenuDesignActivity" />
+            android:label="@string/title_activity_meal">
         </activity>
         <activity android:name=".FoodDetailActivity" />
         <activity android:name=".CartActivity" />
