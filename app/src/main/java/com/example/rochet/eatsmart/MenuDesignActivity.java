@@ -45,6 +45,7 @@ public class MenuDesignActivity extends AppCompatActivity
     private CategoryListAdapter mAdapter;
 
     Toast toast;
+    public static String strCode = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,14 +103,10 @@ public class MenuDesignActivity extends AppCompatActivity
     }
 
     private void loadMenu() {
-        // Put initial data into the category list.
-        /*for (int i = 0; i < 10; i++) {
-            mCategoryList.add(new Category("category" + i, ""));
-        }*/
 
         //Requête API
         Intent intent = getIntent();
-        String strCode = intent.getStringExtra("codeMenu");
+        strCode = intent.getStringExtra("codeMenu");
         new MenuDesignActivity.FetchTask().execute("https://eatsmartapi.herokuapp.com/categories?code=" + strCode);
     }
 

@@ -30,6 +30,7 @@ public class ScanActivity extends AppCompatActivity {
     BarcodeDetector barcodeDetector;
     CameraSource cameraSource;
     final int RequestCameraPermissionID = 1001;
+    boolean hasStartIntent = false;
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -104,11 +105,14 @@ public class ScanActivity extends AppCompatActivity {
                         public void run() {
                             //Vibrator vibrator = (Vibrator)getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                             //vibrator.vibrate(500);
-                            txtResult.setText(qrcodes.valueAt(0).displayValue);
+                            if(hasStartIntent == false) {
+                                hasStartIntent = true;
+                                txtResult.setText(qrcodes.valueAt(0).displayValue);
 
-                            Intent intent = new Intent(ScanActivity.this, MenuDesignActivity.class);
-                            intent.putExtra("codeMenu", qrcodes.valueAt(0).displayValue);
-                            startActivity(intent);
+                                Intent intent = new Intent(ScanActivity.this, MenuDesignActivity.class);
+                                intent.putExtra("codeMenu", qrcodes.valueAt(0).displayValue);
+                                startActivity(intent);
+                            }
                         }
                     });
                 }

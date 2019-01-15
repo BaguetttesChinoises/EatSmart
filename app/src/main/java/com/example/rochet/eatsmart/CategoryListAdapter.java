@@ -64,6 +64,7 @@ public class CategoryListAdapter extends
 
 
             Intent intent = new Intent(mContext, MealActivity.class);
+            intent.putExtra("codeMenu", MenuDesignActivity.strCode);
             //create a Bundle object for saving the category
             Bundle bundle = new Bundle();
             //Adding key value pairs to this bundle

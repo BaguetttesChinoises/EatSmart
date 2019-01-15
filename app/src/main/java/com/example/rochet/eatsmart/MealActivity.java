@@ -37,6 +37,8 @@ public class MealActivity extends AppCompatActivity {
     private RecyclerView mRecycler_meal;
     private MealListAdapter mAdapter;
 
+    String strCode = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +58,7 @@ public class MealActivity extends AppCompatActivity {
 
         Intent intent = this.getIntent();
         Bundle bundle = intent.getBundleExtra(CategoryListAdapter.MenuViewHolder.EXTRA_CATEGORY);
+        strCode = intent.getStringExtra("codeMenu");
         //Type object = (Type) bundle.getSerializable("KEY");
         Category myCategory = (Category) bundle.getSerializable("category_selected");
         Log.d(LOG_TAG, "category qui a lance cette activity : " + myCategory.getName());
@@ -82,7 +85,7 @@ public class MealActivity extends AppCompatActivity {
         //Requête API
         //Intent intent = getIntent();
         //String strCode = intent.getStringExtra("codeMenu");
-        new MealActivity.FetchTask().execute("https://eatsmartapi.herokuapp.com/categories/" + categorie + "/dishes?code=AZERTY");
+        new MealActivity.FetchTask().execute("https://eatsmartapi.herokuapp.com/categories/" + categorie + "/dishes?code=" + strCode);
     }
 
     private boolean isConnected() {

@@ -70,6 +70,7 @@ public class CartActivity extends AppCompatActivity {
     public void cleanDatabase(View view) {
         new Database(getBaseContext()).cleanCart();
         Intent menuIntent = new Intent(CartActivity.this, MenuDesignActivity.class);
+        menuIntent.putExtra("codeMenu", MenuDesignActivity.strCode);
         startActivity(menuIntent);
 
     }
