@@ -74,4 +74,9 @@ public class CartActivity extends AppCompatActivity {
         startActivity(menuIntent);
 
     }
+
+    public  void envoyerCommande(View view) {
+        Intent intent = new Intent(this, CommandeEnvoye.class);
+        startActivity(intent);
+    }
 }

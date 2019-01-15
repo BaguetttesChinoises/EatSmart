@@ -57,7 +57,8 @@
                 android:text="Envoyer Commande"
                 android:textColor="@android:color/holo_green_light"
                 android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"/>
+                android:layout_centerHorizontal="true"
+                android:onClick="envoyerCommande"/>
 
             <Button
                 android:layout_width="wrap_content"
