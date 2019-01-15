@@ -147,11 +147,7 @@ public class MenuDesignActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_menu) {
-            // Handle the menu action
-            Intent cartIntent = new Intent(MenuDesignActivity.this, MenuDesignActivity.class);
-            startActivity(cartIntent);
-        } else if (id == R.id.nav_order) {
+        if (id == R.id.nav_order) {
             // Handle the order action
             Intent cartIntent = new Intent(MenuDesignActivity.this, CartActivity.class);
             startActivity(cartIntent);
